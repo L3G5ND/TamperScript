@@ -1,0 +1,51 @@
+{
+
+    "name": "TamperScript",
+    "short_name": "TamperScript",
+    "description": "An easy way to tamper websites with scripts",
+    "author": "L3G5ND",
+    "version": "1.5.9",
+
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+
+    "incognito": "split",
+    "offline_enabled": true,
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "manifest_version": 2,
+
+    "content_scripts": [
+        {
+            "js": [
+                "Content.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "background": {
+        "scripts": [
+            "Background.js"
+        ],
+        "persistent": true
+    },
+    "browser_action": {
+        "default_title": "TamperScript",
+        "default_popup": "Popup/index.html"
+    },
+    "permissions": [
+        "storage",
+        "unlimitedStorage",
+        "tabs"
+    ],
+    "web_accessible_resources" : [
+        "Sandbox.js"
+    ]
+    
+}
